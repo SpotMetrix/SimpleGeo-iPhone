@@ -29,13 +29,14 @@
 //
 
 #import "AbstractPlacesViewController.h"
+#import "SM3DAR.h"
 
 
 @interface PlacesMapViewController : AbstractPlacesViewController <MKMapViewDelegate>
 {
-    MKMapView *mapView;
+    SM3DARMapView *mapView;
 }
 
-@property (nonatomic,assign) IBOutlet MKMapView *mapView;
+@property (nonatomic,assign) IBOutlet SM3DARMapView *mapView;
 
 @end

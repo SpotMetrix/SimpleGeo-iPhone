@@ -35,6 +35,13 @@
 
 @synthesize mapView;
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [mapView addBackground];
+}
+
 - (void)loadPlacesForLocation:(CLLocationCoordinate2D)location
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
@@ -78,7 +85,7 @@
             }
         }
 
-        MKPointAnnotation *annotation = [[[MKPointAnnotation alloc] init] autorelease];
+        SM3DARBasicPointAnnotation *annotation = [[[SM3DARBasicPointAnnotation alloc] init] autorelease];
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = point.latitude;
         coordinate.longitude = point.longitude;
@@ -86,6 +93,7 @@
         annotation.coordinate = coordinate;
         annotation.title = name;
         annotation.subtitle = category;
+        annotation.imageName = @"sg_marker_icon.png";
 
         [annotations addObject:annotation];
     }
@@ -94,7 +102,7 @@
 }
 
 #pragma mark MKMapViewDelegate methods
-
+/*
 - (MKAnnotationView *)mapView:(MKMapView *)aMapView
             viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -110,5 +118,6 @@
     annotationView.annotation = annotation;
     return annotationView;
 }
+*/
 
 @end
